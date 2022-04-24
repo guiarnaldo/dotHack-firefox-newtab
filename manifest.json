@@ -1,0 +1,17 @@
+{
+
+  "manifest_version": 2,
+  "name": "Aba do .hack//gu",
+  "version": "1.0",
+
+  "description": "Deixa a new tab igual ao desktop do .hack//g.u.",
+
+  "icons": {
+    "48": "icons/border-48.png",
+    "96": "icons/border-48.png"
+  },
+
+  "chrome_url_overrides" : {
+    "newtab": "aba.html"
+  }
+}
