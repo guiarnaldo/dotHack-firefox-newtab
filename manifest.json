@@ -12,6 +12,6 @@
   },
 
   "chrome_url_overrides" : {
-    "newtab": "aba.html"
+    "newtab": "new tab.html"
   }
 }
