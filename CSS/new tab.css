@@ -15,21 +15,21 @@ body, html { /*conserta o problema do <!DOCTYPE html> quebrar o css*/
     width: 100%;
 }
 /*Icones*/
-.icones{
+#icones{
     width: 69.1%;
     height: 63.7%;
     position: absolute;
     top: 27.2%;
     transform-style: preserve-3d;
 }
-.icones>div{
+#icones>div{
     position: absolute;
     right: 25%;
     width: 15%;
     height: 15%;
     transform-origin: center;
-    transform: rotateY(calc(45deg*var(--i))) translateX(300%);
     transform-style: preserve-3d;
+    transition: transform 1s;
 }
 .imagens{
     background-image: url(../icons/icon-back.png);
@@ -38,8 +38,9 @@ body, html { /*conserta o problema do <!DOCTYPE html> quebrar o css*/
     position: absolute;
     width: 100%;
     height: 100%;
-    transform: rotateY(calc(-45deg*var(--i))) rotateX(25deg);
+    transition: transform 1s;
 }
+
 #persp{
     transform-style: preserve-3d;
     transform: perspective(1000px) rotateX(-25deg);
@@ -92,9 +93,9 @@ hr{
     border: none;
     background-color: white;
     height: 1.6%;
-}
-.linhaCaixa{
+    z-index: 2;
     position: absolute;
+    float: right;
     width: 60%;
     right: 0%;
 }
@@ -120,11 +121,13 @@ hr{
     font-weight: 300;
 }
 #tituloCaixa{
-    position: absolute;
+    z-index: 3;
+    position: relative;
     top: 11%;
     font-size: 2.8vw;
     left: 4%;
     font-weight: 500;
+    display:inline-block;
 }
 #mineCaixa{
     position: absolute;
