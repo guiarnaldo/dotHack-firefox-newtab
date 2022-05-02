@@ -19,26 +19,164 @@ body, html { /*conserta o problema do <!DOCTYPE html> quebrar o css*/
     width: 69.1%;
     height: 63.7%;
     position: absolute;
-    top: 27.2%;
+    top: 35%;
+    transform: perspective(162vh) rotateX(-25deg);
     transform-style: preserve-3d;
 }
 #icones>div{
     position: absolute;
     right: 25%;
-    width: 15%;
-    height: 15%;
+    width: 20%;
+    height: 20%;
     transform-origin: center;
     transform-style: preserve-3d;
-    transition: transform 1s;
+    transition: transform 0.5s;
 }
 .imagens{
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s;
+}
+.fundo{
     background-image: url(../icons/icon-back.png);
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
     width: 100%;
     height: 100%;
-    transition: transform 1s;
+}
+.cubo{
+    background-image: url(../icons/cubo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    scale: 0.4;
+}
+#cuboA{
+    animation: animaCuboA 4s infinite;
+    animation-timing-function: linear;
+}
+#cuboB{
+    animation: animaCuboB 4s infinite;
+    animation-timing-function: linear;
+}
+#cuboC{
+    animation: animaCuboC 4s infinite;
+    animation-timing-function: linear;
+}
+#cuboD{
+    animation: animaCuboD 4s infinite;
+    animation-timing-function: linear;
+}
+#fundoA{
+    animation: animaFundoA 4s infinite;
+    animation-timing-function: linear;
+}
+#fundoB{
+    animation: animaFundoB 4s infinite;
+    animation-timing-function: linear;
+}
+#fundoC{
+    animation: animaFundoC 4s infinite;
+    animation-timing-function: linear;
+}
+#fundoD{
+    animation: animaFundoD 4s infinite;
+    animation-timing-function: linear;
+}
+@keyframes animaFundoA{
+    0%{
+        transform: translateX(-10%) translateY(-10%);
+    }
+    50%{
+        transform: translateX(10%) translateY(10%);
+    }
+    100%{
+        transform: translateX(-10%) translateY(-10%);
+    }
+}
+@keyframes animaFundoB{
+    0%{
+        transform: translateX(10%) translateY(10%);
+    }
+    50%{
+        transform: translateX(-10%) translateY(-10%);
+    }
+    100%{
+        transform: translateX(10%) translateY(10%);
+    }
+}
+@keyframes animaFundoD{
+    0%{
+        transform: translateX(-5%) translateY(-5%);
+    }
+    50%{
+        transform: translateX(5%) translateY(5%);
+    }
+    100%{
+        transform: translateX(-5%) translateY(-5%);
+    }
+}
+@keyframes animaFundoC{
+    0%{
+        transform: translateX(5%) translateY(5%);
+    }
+    50%{
+        transform: translateX(-5%) translateY(-5%);
+    }
+    100%{
+        transform: translateX(5%) translateY(5%);
+    }
+}
+@keyframes animaCuboA {
+    0%{
+        transform: translateX(-80%) translateY(-80%);
+    }
+    50%{
+        transform: translateX(-20%) translateY(20%);
+    }
+    100%{
+        transform: translateX(-80%) translateY(-80%);
+    }
+}
+
+@keyframes animaCuboB {
+    0%{
+        transform: translateX(-20%) translateY(20%);
+    }
+    50%{
+        transform: translateX(-80%) translateY(-80%);
+    }
+    100%{
+        transform: translateX(-20%) translateY(20%);
+    }
+}
+@keyframes animaCuboC {
+    0%{
+        transform: translateX(-35%) translateY(-15%);
+    }
+    50%{
+        transform: translateX(-65%) translateY(7%);
+    }
+    100%{
+        transform: translateX(-35%) translateY(-15%);
+    }
+}
+@keyframes animaCuboD {
+    0%{
+        transform: translateX(-65%) translateY(7%);
+    }
+    50%{
+        transform: translateX(-35%) translateY(-15%);
+    }
+    100%{
+        transform: translateX(-65%) translateY(7%);
+    }
 }
 
 #persp{
@@ -86,7 +224,7 @@ body, html { /*conserta o problema do <!DOCTYPE html> quebrar o css*/
     left: 39.5%;
     top: 35%;
     font-family: 'Archivo','Nachlieli CLM', arial;
-    
+    transition: opacity 0.2s;
 }
 hr{
     color: none;
@@ -127,7 +265,7 @@ hr{
     font-size: 2.8vw;
     left: 4%;
     font-weight: 500;
-    display:inline-block;
+    display: inline-block;
 }
 #mineCaixa{
     position: absolute;
