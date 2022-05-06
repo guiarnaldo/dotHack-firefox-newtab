@@ -1,25 +1,34 @@
-var scrollMouse = document.body;
-var caixa = document.getElementById('caixa');
-var tituloCaixa = document.getElementById('tituloCaixa');
-var legenda = document.getElementById('textoLegenda');
-var carrosel = document.querySelectorAll('#icones>div');
-var imagens = document.querySelectorAll('.imagens');
-var linhas = document.querySelectorAll('.linhas');
+const scrollMouse = document.body;
+const box = document.getElementById('box');
+const titleBox = document.getElementById('titleBox');
+const subtitle = document.getElementById('textSubtitle');
+const carrosel = document.querySelectorAll('#carousel>div');
+const icons = document.querySelectorAll('.icons');
+const boxLines = document.querySelectorAll('.boxLines');
+const iconBox = document.getElementById('iconBox');
+const selectorIcon = document.getElementById('selectorIcon');
 var delay;
+var grau = 3600005;
+var titlesRoda = 5;
+var posicao = [{title: 'News Capture', urlBox: '../icons/news.png', urlIcon: '../icons/news2.png'},
+{title: 'Community Forum', urlBox: '../icons/news.png', urlIcon: '../icons/news2.png'},
+{title: 'Movie Player', urlBox: '../icons/movie.png', urlIcon: '../icons/movie2.png'},
+{title: 'Accessories', urlBox: '../icons/accessories.png', urlIcon: '../icons/accessories2.png'},
+{title: 'Data Manager', urlBox: '../icons/data.png', urlIcon: '../icons/data2.png'},
+{title: 'The World', urlBox: '../icons/theworld.png', urlIcon: '../icons/theworld2.png'},
+{title: 'Mail Station', urlBox: '../icons/mail.png', urlIcon: '../icons/mail2.png'},
+{title: 'Crimsom VS', urlBox: '../icons/crimsomvs.png', urlIcon: '../icons/crimsomvs2.png'}];
 
 scrollMouse.addEventListener('wheel', roda);
-var grau = 3600005;
-var titulos = ['The World','Mail Station','Crimsom VS', 'News Capture', 'Community Forum', 'Movie Player', 'Accessories', 'Data Manager'];
-var titulosRoda = 0;
 
 for (let i = 0; i < carrosel.length; i++) {
-    carrosel[i].style.transform = "rotateY(calc("+grau+"deg + 22.5deg*var(--i))) translateX(220%)";
+    carrosel[i].style.transform = "rotateY(calc("+grau+"deg + 22.5deg*var(--i))) translateX(70vh)";
 }
 for (let i = 0; i < carrosel.length; i++) {
     if(i>=8){
-        imagens[i].style.transform = "rotateY(calc(-"+grau+"deg - 22.5deg*var(--i))) rotateX(25deg) scale(0.3)";
+        icons[i].style.transform = "rotateY(calc(-"+grau+"deg - 22.5deg*var(--i))) rotateX(25deg) scale(0.3)";
     }else{
-        imagens[i].style.transform = "rotateY(calc(-"+grau+"deg - 22.5deg*var(--i))) rotateX(25deg)";
+        icons[i].style.transform = "rotateY(calc(-"+grau+"deg - 22.5deg*var(--i))) rotateX(25deg)";
     }
 }
 
@@ -27,61 +36,69 @@ for (let i = 0; i < carrosel.length; i++) {
 
 function roda(evento){
     clearTimeout(delay);
-    caixa.style.opacity = 0;
+    box.style.opacity = 0;
+    selectorIcon.style.opacity = 0;
     if(evento.deltaY<0){
-        if(titulosRoda>=titulos.length-1){
-            titulosRoda = 0;
-            
+        if(titlesRoda<=0){
+            titlesRoda = 7;
         }else{
-            titulosRoda++;
-        }
+            titlesRoda--;
+            
+        } 
         grau = grau + 45;  
     }
     else{
-        if(titulosRoda<=0){
-            titulosRoda = titulos.length-1;
-        }else{
-            titulosRoda--;
+        if(titlesRoda>=7){
+            titlesRoda = 0;
             
+        }else{
+            titlesRoda++;
         }
         grau = grau - 45;
          
     }
     for (let i = 0; i < carrosel.length; i++) {
-        if(evento.deltaY>0) carrosel[i].style.transform = "rotateY(calc("+grau+"deg - 15deg + 22.5deg*var(--i))) translateX(220%)";
-        else carrosel[i].style.transform = "rotateY(calc("+grau+"deg + 15deg + 22.5deg*var(--i))) translateX(220%)";
+        if(evento.deltaY>0) carrosel[i].style.transform = "rotateY(calc("+grau+"deg - 15deg + 22.5deg*var(--i))) translateX(70vh)";
+        else carrosel[i].style.transform = "rotateY(calc("+grau+"deg + 15deg + 22.5deg*var(--i))) translateX(70vh)";
     }
-    for (let i = 0; i < imagens.length; i++) {
+    for (let i = 0; i < icons.length; i++) {
         if(i>=8){
-            imagens[i].style.transform = "rotateY(calc(-"+grau+"deg - 22.5deg*var(--i))) rotateX(25deg) scale(0.3)";
+            icons[i].style.transform = "rotateY(calc(-"+grau+"deg - 22.5deg*var(--i))) rotateX(25deg) scale(0.3)";
         }else{
-            imagens[i].style.transform = "rotateY(calc(-"+grau+"deg - 22.5deg*var(--i))) rotateX(25deg)";
+            icons[i].style.transform = "rotateY(calc(-"+grau+"deg - 22.5deg*var(--i))) rotateX(25deg)";
         }
     }
     delay = setTimeout(function(){
         scrollMouse.removeEventListener('wheel', roda); //adiciona um delay para a função roda poder funcionar
         //novamente enquando a animação de bounce é feita
-        for (let i = 0; i < imagens.length; i++) {
+        for (let i = 0; i < icons.length; i++) {
             if(evento.deltaY>0) carrosel[i].animate([
-                {transform: "rotateY(calc("+grau+"deg - 15deg + 22.5deg*var(--i))) translateX(220%)", easing: 'ease-out'},
-                {transform: "rotateY(calc("+grau+"deg + 7deg + 22.5deg*var(--i))) translateX(220%)", easing: 'ease-out'},
-                {transform: "rotateY(calc("+grau+"deg + 22.5deg*var(--i))) translateX(220%)", easing: 'ease-in'},
+                {transform: "rotateY(calc("+grau+"deg - 12deg + 22.5deg*var(--i))) translateX(70vh)", easing: 'ease-out'},
+                {transform: "rotateY(calc("+grau+"deg + 5deg + 22.5deg*var(--i))) translateX(70vh)", easing: 'ease-out'},
+                {transform: "rotateY(calc("+grau+"deg + 22.5deg*var(--i))) translateX(70vh)", easing: 'ease-in'},
             ], {duration: 1000});
             else carrosel[i].animate([
-                {transform: "rotateY(calc("+grau+"deg + 15deg + 22.5deg*var(--i))) translateX(220%)", easing: 'ease-out'},
-                {transform: "rotateY(calc("+grau+"deg - 7deg + 22.5deg*var(--i))) translateX(220%)", easing: 'ease-out'},
-                {transform: "rotateY(calc("+grau+"deg + 22.5deg*var(--i))) translateX(220%)", easing: 'ease-in'},
+                {transform: "rotateY(calc("+grau+"deg + 12deg + 22.5deg*var(--i))) translateX(70vh)", easing: 'ease-out'},
+                {transform: "rotateY(calc("+grau+"deg - 5deg + 22.5deg*var(--i))) translateX(70vh)", easing: 'ease-out'},
+                {transform: "rotateY(calc("+grau+"deg + 22.5deg*var(--i))) translateX(70vh)", easing: 'ease-in'},
             ], {duration: 1000});
         }
         for (let i = 0; i < carrosel.length; i++) {
-            carrosel[i].style.transform = "rotateY(calc("+grau+"deg + 22.5deg*var(--i))) translateX(220%)";
+            carrosel[i].style.transform = "rotateY(calc("+grau+"deg + 22.5deg*var(--i))) translateX(70vh)";
         }
-        tituloCaixa.innerHTML = titulos[titulosRoda];
-        caixa.style.opacity = 1;
-        for (let i = 0; i < linhas.length; i++) {
-            linhas[i].setAttribute("style", "width:calc(93% - "+tituloCaixa.clientWidth +"px");
+        titleBox.innerHTML = posicao[titlesRoda].title;
+        box.style.opacity = 1;
+        for (let i = 0; i < boxLines.length; i++) {
+            boxLines[i].setAttribute("style", "width:calc(93% - "+titleBox.clientWidth +"px");
         }
-        legenda.innerHTML = 'Launch '+titulos[titulosRoda]+'.';
+        subtitle.innerHTML = 'Launch '+posicao[titlesRoda].title+'.';
+        iconBox.style.backgroundImage = "url(" + posicao[titlesRoda].urlBox +")";
+       
+        
+        setTimeout(function(){
+            selectorIcon.style.backgroundImage = "url(" + posicao[titlesRoda].urlIcon +")";
+            selectorIcon.style.opacity = 1;
+        },500);
 
         setTimeout(function(){ //adiciona o eventlistener novamente
             scrollMouse.addEventListener('wheel', roda);

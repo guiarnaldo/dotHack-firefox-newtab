@@ -14,16 +14,58 @@ body, html { /*conserta o problema do <!DOCTYPE html> quebrar o css*/
     height: 100%;
     width: 100%;
 }
-/*Icones*/
-#icones{
+/*Icons*/
+#carousel{
     width: 69.1%;
     height: 63.7%;
     position: absolute;
     top: 35%;
     transform: perspective(162vh) rotateX(-25deg);
     transform-style: preserve-3d;
+    z-index: -2;
 }
-#icones>div{
+#selector{
+    background-image: url(../icons/selector.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    width: 28vh;
+    height: 28vh;
+    left: 23%;
+    top: 60%;
+}
+#selectorSpace{
+    position: absolute;
+    width: 70%;
+    height: 65%;
+    z-index: -1;
+    display: inline-block;
+    overflow: hidden;
+    top: 20%;
+    left: 15%
+}
+#selectorIcon{
+    background-image: url(../icons/theworld2.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    width: 85%;
+    height: 85%;
+    left: 5%;
+    top: 5%;
+    z-index: -1;
+    transition: opacity 1s;
+}
+#selectorBack{
+    background-image: url(../icons/selectorBack.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    width: 95%;
+    height: 95%;
+    z-index: -2;
+}
+#carousel>div{
     position: absolute;
     right: 25%;
     width: 20%;
@@ -32,64 +74,106 @@ body, html { /*conserta o problema do <!DOCTYPE html> quebrar o css*/
     transform-style: preserve-3d;
     transition: transform 0.5s;
 }
-.imagens{
+.icons{
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
     width: 100%;
     height: 100%;
     transition: transform 0.5s;
+    transform-style: preserve-3d;
 }
-.fundo{
+.back{
     background-image: url(../icons/icon-back.png);
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
     width: 100%;
     height: 100%;
+    transform-style: preserve-3d;
 }
-.cubo{
-    background-image: url(../icons/cubo.png);
+.cube{
+    background-image: url(../icons/cube.png);
     background-repeat: no-repeat;
     background-size: contain;
+    width: 100%;
+    height: 100%;
+    scale: 0.5;
+    left: 8%;
     position: absolute;
-    width: 100%;
-    height: 100%;
-    scale: 0.4;
 }
-#cuboA{
-    animation: animaCuboA 4s infinite;
+.theworld{
+    background-image: url(../icons/theworld2.png);
+}
+.news{
+    background-image: url(../icons/news2.png);
+}
+.forum{
+    background-image: url(../icons/news2.png);
+}
+.mail{
+    background-image: url(../icons/mail2.png);
+}
+.accessories{
+    background-image: url(../icons/accessories2.png);
+}
+.crimsomvs{
+    background-image: url(../icons/crimsomvs2.png);
+}
+.movie{
+    background-image: url(../icons/movie2.png);
+}
+.data{
+    background-image: url(../icons/data2.png);
+}
+.selectorAnima{
+    animation: selectorAnima 4s infinite;
     animation-timing-function: linear;
 }
-#cuboB{
-    animation: animaCuboB 4s infinite;
+@keyframes selectorAnima {
+    0%{
+        transform: translateX(-7%) translateY(-15%);
+    }
+    50%{
+        transform: translateX(7%) translateY(15%);
+    }
+    100%{
+        transform: translateX(-7%) translateY(-15%);
+    }
+}
+#cubeA{
+    animation: animaCubeA 4s infinite;
     animation-timing-function: linear;
 }
-#cuboC{
-    animation: animaCuboC 4s infinite;
+#cubeB{
+    animation: animaCubeB 4s infinite;
     animation-timing-function: linear;
 }
-#cuboD{
-    animation: animaCuboD 4s infinite;
+#cubeC{
+    animation: animaCubeC 4s infinite;
     animation-timing-function: linear;
 }
-#fundoA{
-    animation: animaFundoA 4s infinite;
+#cubeD{
+    animation: animaCubeD 4s infinite;
     animation-timing-function: linear;
 }
-#fundoB{
-    animation: animaFundoB 4s infinite;
+#backA{
+    animation: animaBackA 4s infinite;
     animation-timing-function: linear;
 }
-#fundoC{
-    animation: animaFundoC 4s infinite;
+#backB{
+    animation: animaBackB 4s infinite;
     animation-timing-function: linear;
 }
-#fundoD{
-    animation: animaFundoD 4s infinite;
+#backC{
+    animation: animaBackC 4s infinite;
     animation-timing-function: linear;
 }
-@keyframes animaFundoA{
+#backD{
+    animation: animaBackD 4s infinite;
+    animation-timing-function: linear;
+}
+@keyframes animaBackA{
     0%{
         transform: translateX(-10%) translateY(-10%);
     }
@@ -100,7 +184,7 @@ body, html { /*conserta o problema do <!DOCTYPE html> quebrar o css*/
         transform: translateX(-10%) translateY(-10%);
     }
 }
-@keyframes animaFundoB{
+@keyframes animaBackB{
     0%{
         transform: translateX(10%) translateY(10%);
     }
@@ -111,7 +195,7 @@ body, html { /*conserta o problema do <!DOCTYPE html> quebrar o css*/
         transform: translateX(10%) translateY(10%);
     }
 }
-@keyframes animaFundoD{
+@keyframes animaBackD{
     0%{
         transform: translateX(-5%) translateY(-5%);
     }
@@ -122,7 +206,7 @@ body, html { /*conserta o problema do <!DOCTYPE html> quebrar o css*/
         transform: translateX(-5%) translateY(-5%);
     }
 }
-@keyframes animaFundoC{
+@keyframes animaBackC{
     0%{
         transform: translateX(5%) translateY(5%);
     }
@@ -133,7 +217,7 @@ body, html { /*conserta o problema do <!DOCTYPE html> quebrar o css*/
         transform: translateX(5%) translateY(5%);
     }
 }
-@keyframes animaCuboA {
+@keyframes animaCubeA {
     0%{
         transform: translateX(-80%) translateY(-80%);
     }
@@ -145,7 +229,7 @@ body, html { /*conserta o problema do <!DOCTYPE html> quebrar o css*/
     }
 }
 
-@keyframes animaCuboB {
+@keyframes animaCubeB {
     0%{
         transform: translateX(-20%) translateY(20%);
     }
@@ -156,38 +240,32 @@ body, html { /*conserta o problema do <!DOCTYPE html> quebrar o css*/
         transform: translateX(-20%) translateY(20%);
     }
 }
-@keyframes animaCuboC {
+@keyframes animaCubeC {
     0%{
         transform: translateX(-35%) translateY(-15%);
     }
     50%{
-        transform: translateX(-65%) translateY(7%);
+        transform: translateX(-55%) translateY(7%);
     }
     100%{
         transform: translateX(-35%) translateY(-15%);
     }
 }
-@keyframes animaCuboD {
+@keyframes animaCubeD {
     0%{
-        transform: translateX(-65%) translateY(7%);
+        transform: translateX(-55%) translateY(7%);
     }
     50%{
         transform: translateX(-35%) translateY(-15%);
     }
     100%{
-        transform: translateX(-65%) translateY(7%);
+        transform: translateX(-55%) translateY(7%);
     }
 }
 
-#persp{
-    transform-style: preserve-3d;
-    transform: perspective(1000px) rotateX(-25deg);
-    width: 100%;
-    height: 100%;
-}
-/*Icones*/
+/*Icons*/
 
-#legenda{
+#subtitle{
     position: absolute;
     bottom: 4%;
     background-color: #c0c1c3;
@@ -208,12 +286,12 @@ body, html { /*conserta o problema do <!DOCTYPE html> quebrar o css*/
     font-size: 2.5vh;
 }
 
-#seta{
+#arrow{
     height: 35%;
     padding: 1%;
 }
 
-#caixa{
+#box{
     font-family: 'Liberation Sans';
     font-size: 20px;
     color: white;
@@ -226,6 +304,17 @@ body, html { /*conserta o problema do <!DOCTYPE html> quebrar o css*/
     font-family: 'Archivo','Nachlieli CLM', arial;
     transition: opacity 0.2s;
 }
+#iconBox{
+    display: inline-block;
+    background-image: url(../icons/theworld.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 5%;
+    height: 17%;
+    position: absolute;
+    right: 1%;
+    top: 35%
+}
 hr{
     color: none;
     border: none;
@@ -237,28 +326,28 @@ hr{
     width: 60%;
     right: 0%;
 }
-#linha1{
+#boxLine1{
     top: 11.5%;
 }
-#linha2{
+#boxLine2{
     top: 14.9%;
 }
-#linha3{
+#boxLine3{
     top: 24.8%;
 }
-#linha4{
+#boxLine4{
     position: absolute;
     width: 100%;
-    bottom: 11%;
+    bottom: 8%;
 }
-#legendaCaixa{
+#subtitleBox{
     position: absolute;
     bottom: 2.2%;
     left: 2.7%;
-    font-size: 1.4vw;
+    font-size: 1.2vw;
     font-weight: 300;
 }
-#tituloCaixa{
+#titleBox{
     z-index: 3;
     position: relative;
     top: 11%;
@@ -267,23 +356,23 @@ hr{
     font-weight: 500;
     display: inline-block;
 }
-#mineCaixa{
+#mineBox{
     position: absolute;
     right: 2%;
-    bottom: 19.5%;
-    font-size: 2.2vw;
+    bottom: 16.5%;
+    font-size: 1.8vw;
     font-weight: 500;
 }
-#copyrightCaixa{
+#copyrightBox{
     position: absolute;
-    left: 44%;
-    bottom: 21.5%;
-    font-size: 0.9vw;
+    left: 52%;
+    bottom: 19.5%;
+    font-size: 0.8vw;
     font-weight: 300;
 }
-#lifeCaixa{
+#lifeBox{
     position: absolute;
-    font-size: 1vw;
+    font-size: 0.8vw;
     font-weight: 300;
     left: 5.2%;
     top:37.8%;
