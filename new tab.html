@@ -7,6 +7,7 @@
     </head>
     <body>
         <div id="carousel">
+            <!--Icons-->
             <div style="--i:1;">
                 <div class="icons">
                     <div class="back" id="backD">
@@ -121,13 +122,55 @@
                 </div>
             </div>
         </div>
-        <div id ="selector">
-            <div id ="selectorSpace">
-                <div id ="selectorIcon" class="selectorAnima">
+        <div id="options">
+            <div class ="optionsTab" id="options3">
+                <div>BG Setting</div>
+                <div id="backgroundForm">
+                    Background:<input name="setBackground" id="setBackground">
+                    <br>
+                    Icon 1:<input name="setIcon1" id="setIcon1">
+                    <br>
+                    Icon 2:<input name="setIcon2" id="setIcon2">
+                    <br>
+                    Icon 3:<input name="setIcon3" id="setIcon3">
+                    <br>
+                    Icon 4:<input name="setIcon4" id="setIcon4">
+                    <br>
+                    Icon 5:<input name="setIcon5" id="setIcon5">
+                    <br>
+                    Icon 6:<input name="setIcon6" id="setIcon6">
+                    <br>
+                    Icon 7:<input name="setIcon7" id="setIcon7">
+                    <br>
+                    Icon 8:<input name="setIcon8" id="setIcon8">
+                    <br>
+                    <button name="backgroundReset" id="backgroundReset">Reset</button>
+                    <button name="backgroundConfirm" id="backgroundConfirm">Confirm</button>
                 </div>
+                
             </div>
-            <div id ="selectorBack"></div>
+            <div class ="optionsTab" id="options2">
+                <div id="optionsText">Background</div>
+                <div class="optionsBox" id="optionsBox1"></div>
+                <div class="optionsBox" id="optionsBox2"></div>
+            </div>
+            <div class ="optionsTab" id="options1">
+                <div id="optionsText">BGM<br>Background</div>
+                <div class="optionsBox" id="optionsBox3"></div>
+                <div class="optionsBox" id="optionsBox4"></div>
+            </div>
         </div>
+        <!--Selector-->
+        <a id="selectorLink" href="https://www.google.com/">
+            <div id ="selector">
+                <div id ="selectorSpace">
+                    <div id ="selectorIcon" class="selectorAnima">
+                    </div>
+                </div>
+                <div id ="selectorBack"></div>
+            </div>
+        </a>
+        <!--Box-->
         <div id="box">
             <div id="titleBox">The World</div>
             <hr class="boxLines" id="boxLine1">
@@ -140,6 +183,7 @@
             <hr id="boxLine4">
             <span id="subtitleBox">Altimit Mine</span>
         </div>
+        <!--Subtitle-->
         <div id="subtitle">
             <img id="arrow" src="icons/arrow.svg">
             <span id="textSubtitle">Launch The World.</span>
